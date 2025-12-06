@@ -1,0 +1,71 @@
+button.refresh {
+    padding: 0px 10px;
+    cursor: pointer;
+}
+
+button.refresh:hover {
+    background: #222;
+    color: #ddd;
+}
+
+div.stageDone {
+    width: 100%;
+}
+
+details { cursor: pointer; }
+
+
+.teamA {
+    background: #65fafe !important;
+    border: 1px solid black;
+}
+
+.teamB {
+    background: #b43721 !important;
+    color: white;
+    border: 1px solid black;
+}
+
+div.stageDone div p {
+    padding: 10px;
+}
+
+div.stageDone  div {
+    padding: 5px;
+    margin: 5px 0px;
+    border: 1px solid black;
+}
+
+div.stageDone  div div {border: none}
+
+div.stageDone div span {
+    padding: 10px;
+    margin-left: 15px;
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+}
+
+div.teamsCards span {
+    background: rgba(0,0,0,0);
+    width: auto !important;
+    display: inline !important;
+    margin-left: 0px !important;
+}
+
+.teamsCards {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.teamsCards p {
+    width: 50%;
+}
+
+
+/* max-width  */
+@media screen and (max-width: 600px) {
+	.teamsCards p {
+        font-size: 0.7em;
+    }
+}

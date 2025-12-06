@@ -1,0 +1,38 @@
+<h2>Eventos Realizados</h2>
+
+<button (click)="refreshPage()" class="refresh">Atualizar</button>
+
+<app-manage-participants *ngIf="adminMode"></app-manage-participants>
+
+<hr/>
+
+<div *ngFor="let date of stageDates; let idx = index" class="stageDone">
+    <p>Etapa {{stageDates.length - idx}}</p>
+    <p>Data do Evento: {{dateToStringFormat(date)}}</p>
+
+    <details>
+        <summary>Tabela de Classificação</summary>
+
+        <app-classification-table date="{{date}}" [refreshFlag]="refreshFlag"></app-classification-table>
+    </details>
+
+    <details>
+        <summary>Rodadas do Dia</summary>
+
+        <div *ngFor="let round of GetStageRoundsAmount(date)">
+            <p>Rodada: {{round}} <span [class]="GetWinnerTeam(date, round) === 'A' ? 'teamA' : GetWinnerTeam(date, round) === 'B' ? 'teamB' : ''">Vencedor: Time {{GetWinnerTeam(date, round)}}</span></p>
+
+            <button class="refresh" *ngIf="adminMode" (click)="deleteRound(date, round)">Deletar</button>
+            
+            <div class="teamsCards">
+                <p class="teamA">Time A <br> <span *ngFor="let i of GetTeamStageRoundParticipants(date, round, 'A')">- {{i}}<br/></span></p>
+                <p class="teamB">Time B <br> <span *ngFor="let i of GetTeamStageRoundParticipants(date, round, 'B')">- {{i}}<br/></span></p>
+            </div>                
+        </div>
+    </details>
+        
+    
+    <br/>
+    <hr/>
+    <br/>
+</div>

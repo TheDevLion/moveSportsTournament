@@ -1,0 +1,83 @@
+header {
+    background: #222;
+    color: #ddd;
+    width: 100%;
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+}
+
+header h1 {
+    padding: 15px;
+    cursor: default;
+    background: #222;
+}
+
+div#content {
+    padding: 10px;
+}
+
+header img {
+    background: none;
+    width: 100px;
+    margin-top: 10px;
+}
+
+ul {
+    list-style: square;
+    margin-left: 15px;
+    cursor: default;
+}
+
+ul ul {
+    list-style: circle;
+}
+
+ul ul ul {
+    list-style: disc;
+}
+
+ul ul ul ul {
+    list-style: upper-latin;
+}
+
+ul li {
+    margin: 10px;
+    cursor: default;
+}
+
+img {
+    width: 300px;
+}
+
+p, ul{margin: 10px;}
+p::before { content: "-";}
+ul {margin-left: 25px;}
+/* ul::before { content: "-";} */
+details {
+    cursor: pointer;
+}
+
+.highlight {
+    font-weight: bold;
+    text-decoration: underline;
+    font-style: italic;
+    
+}
+
+table {
+    text-align: center;
+    /* font-size: 10pt; */
+    margin: 0 auto;
+}
+table th, table td {
+    padding: 1px;
+}
+
+table td button {
+    padding: 2px 5px;
+    background-color: #222;
+    color: #ddd;
+}
+
+table td input {cursor: pointer; text-align: center;}

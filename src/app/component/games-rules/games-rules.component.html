@@ -1,0 +1,318 @@
+<header>
+    <!-- <h1>{{title}}</h1> -->
+    <img [src]="'assets/logo.png'" [alt]="'logo'" />
+    <app-nav-bar></app-nav-bar>
+    <!-- <hr/> -->
+</header>
+
+<div style="padding: 20px;">
+    
+    <!-- Throw throw burrito (em equipe) -->
+    <details>
+        <summary>Throw throw burrito em equipe</summary>
+        <p>
+            Os participantes de cada equipe devem se dispor de forma intercalada na mesa.
+        </p>
+        <ul>
+            Cada participante receberá 5 cartas para a mão e 10 cartas para a pilha individual.
+            <li>
+                Não mostre suas cartas para ninguém.
+            </li>
+            <li>
+                As cartas da pilha individual ficam viradas para baixo e você não pode olhar.
+            </li>
+        </ul>
+        
+        <p>
+            Para pontuar é necessário ter na mão 3 cartas idênticas (em animal ou em cor). Nessa hora o participante coloca sua “trinca” na mesa logo a sua frente.
+        </p>
+        <p>
+            Se as cartas abaixadas forem “normais” (cartas de animais), cada trinca valerá 1 ponto para o participante.
+        </p>
+        <p>
+            Se as cartas abaixadas forem “especiais” (cartas de batalhas), o participante deverá falar em voz alta a batalha declarada nas cartas.
+        </p>
+        <p>
+            Trincas especiais valerão 2 pontos para o participante.
+        </p>
+
+        <br />
+
+        <ul>
+            Tipos de batalha:
+            <li>
+                Guerra de burrito
+                <ul>
+                    <li>Todos os participantes da mesa deverão queimar uns aos outros, exceto o anunciador.</li>
+                </ul>
+            </li>
+            <li>
+                Surra de burrito
+                <ul>
+                    <li>Apenas os dois participantes que estão diretamente ao lado do anunciador deverão queimar um ou outro.</li>
+                </ul>
+            </li>
+            <li>
+                Duelo de burrito
+                <ul>
+                    <li>O anunciador deverá escolher 1 pessoa de cada time para participar de um duelo em pé;</li>
+                </ul>
+                <ul>
+                    <li>Conta-se de 1 até 3, devagar e no ritmo dos passos dos participantes, e os mesmos podem virar-se e tentar queimar um ao outro;</li>
+                </ul>
+                <ul>
+                    <li>O duelo segue até alguém ser queimado, podendo ambos correrem atrás de seus burritos em caso de erro no arremesso.</li>
+                </ul>
+            </li>
+        </ul>
+    
+        <p>
+            Em qualquer batalha o primeiro participante a ser ”queimado” receberá um “ferimento de burrito” (-1 ponto).
+        </p>
+        <p>
+            Em qualquer batalha, se alguém “não apto” pegar ou lançar um burrito de forma indevida receberá um “ferimento de burrito” e a batalha irá finalizar.
+        </p>    
+        <p>
+            Uma “colher de chá” será concedida para quem hesitar em pegar o burrito, porém sem atrapalhar outras pessoas de o pegarem.
+        </p>
+        <p>
+            NÃO É PERMITIDO ACERTAR O ROSTO/CABEÇA DE ALGUM PARTICIPANTE. Quem o fizer será punido com um “ferimento de burrito”.
+        </p>
+        <ul>
+            O participante deverá sempre ter 5 cartas na mão. Ele irá descartar uma carta na pilha individual do próximo participante (sentido anti-horário) e irá comprar da sua pilha individual.
+            <li>
+                As pilhas coletivas só podem ser usadas quando a sua pilha individual estiver vazia.
+            </li>
+        </ul>        
+        <p>
+            No fim de 6 batalhas (6 ferimentos de burritos distribuídos) a equipe com mais pontos vencerá a rodada.
+        </p>
+        <p>A equipe vencedora da primeira rodada recebe um “Cai dentro” que garante ela no duelo final pela vitória no jogo.</p>
+        <p>
+            A pontuação da equipe será a soma de todos os pontos feitos pelos participantes da equipe retirando os ferimentos de
+            burrito.
+        </p>
+        <p class="highlight">
+            VENCEDOR: O jogo terá fim após 2 rodadas e a equipe vencedora será a equipe que venceu as duas rodadas ou a vencedora de um duelo de burritos no caso de empate (pode-se escolher qualquer participante presente no jogo).
+        </p>        
+        <!-- <ul class="highlight">
+            REGRA DE STOP:
+            <li>Vencerá o jogo a equipe que tiver mais pontos.</li>
+            <li>Em caso de empate, será resolvido a pontuação da equipe na rodada após a finalização de todos os jogos da mesma.</li>
+        </ul> -->
+    </details>
+
+    <br/>
+
+    <!-- Bisca -->
+    <details>
+        <summary>Bisca</summary>
+        <table border="1">
+            <tr>
+                <th>Precedência (cartas)</th>
+                <th>Pontuação</th>
+                <!-- <th>Calculadora de pontos <br/> (quantidade de cartas)</th> -->
+            </tr>
+            <tr>
+                <td>A</td>
+                <td>11</td>
+                <!-- <td><input type="number" step="1" [(ngModel)]="A_points"></td> -->
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>10</td>
+                <!-- <td><input type="number" step="1" [(ngModel)]="Seven_points"></td> -->
+            </tr>
+            <tr>
+                <td>K</td>
+                <td>4</td>
+                <!-- <td><input type="number" step="1" [(ngModel)]="K_points"></td> -->
+            </tr>
+            <tr>
+                <td>J</td>
+                <td>3</td>
+                <!-- <td><input type="number" step="1" [(ngModel)]="J_points"></td> -->
+            </tr>
+            <tr>
+                <td>Q</td>
+                <td>2</td>
+                <!-- <td><input type="number" step="1" [(ngModel)]="Q_points"></td> -->
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>0</td>                
+                <!-- <td>A equipe com mais cartas recebe 1 ponto extra na rodada.</td> -->
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>0</td>
+                <!-- <td><button (click)="calculatePoints()">Calcular</button></td> -->
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>0</td>
+                <!-- <td><button (click)="clearPoints()">Limpar</button></td> -->
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>0</td>
+                <!-- <td rowspan="2">Total de pontos: {{points}}</td> -->
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>0</td>
+            </tr>
+            
+        </table>
+
+        <p>O jogo consistirá de duas rodadas.</p>
+        <ul>
+            3 cartas para cada participante e o restante para comprar.
+            <li>
+                Vira-se a carta do topo da pilha de compra e o seu naipe será o “trunfo”.
+            </li>
+        </ul>
+
+        <p>Algum participante do time "A" será o "caller".</p>
+
+        <ul>
+            O “caller” jogará uma carta a sua escolha, podendo ser de qualquer naipe. Os participantes na sequência, um por vez, devem jogar uma carta de acordo com sua estratégia:
+            <li>Desejo de virar “caller”: deverá jogar uma carta de mesmo naipe da jogada pelo “caller” atual de maior precedência ou uma carta trunfo de maior precedência.</li>
+            <li>Caso não possua carta do mesmo naipe do “caller” ou do trunfo, a jogada será apenas um descarte.</li>
+        </ul>
+
+        <p>O participante que tiver a carta com maior precedência será o próximo “caller”.</p>
+
+        <p>O jogo segue até todos os participantes ficarem sem cartas nas mãos.</p>
+
+        <p>No fim da rodada, a equipe que tiver mais cartas ganha 1 ponto extra.</p>
+
+        <p class="highlight">
+            VENCEDOR: O jogo tem fim após 2 rodadas. A equipe que fizer mais pontos no total é a vencedora.
+        </p>
+
+
+    </details>
+    
+    <br />
+        
+    <!-- Uno -->
+    <details>
+        <summary>Uno</summary>
+        <p>
+            Os participantes de cada time devem se dispor de forma intercalada na mesa.
+        </p>        
+        <p>
+            Carta +2 acumula só com +2.
+        </p>
+        <p>
+            Carta +4 acumula só com +4.
+        </p>        
+        <ul>
+            Vale regra do “0” (quando alguém jogar uma carta de número “0” pode escolher o baralho de qualquer outro participante e trocar a mão).
+            <li>Essa ação é opcional.</li>
+            <li>Não pode hesitar na escolha do oponente a ser trocado a mão, se um participante for escolhido a troca deverá acontecer.</li>
+        </ul>
+        <p>
+            Não vale corte e descarte (apenas cartas IDÊNTICAS, mesma cor e número).
+        </p>
+        <p>
+            Não vale regra do “9”, do “7”, do “1” e nem outras diversas.
+        </p>
+        <p>Não é permitido finalizar o jogo com uma carta não numérica (carta de ação). Caso isso aconteça a pessoa que supostamente finalizou terá penalidade de comprar duas novas cartas e passar a vez.</p>
+        <p>É preciso falar “UNO” quando o jogador tiver apenas uma carta na mão, com penalidade de comprar duas novas cartas e passar a vez.</p>
+
+        <p class="highlight">
+            VENCEDOR: O jogo tem fim quando algum participante de qualquer equipe ficar sem cartas nas mãos (sendo essa a equipe vencedora).
+        </p>
+        <!-- <ul class="highlight">
+            REGRA DE STOP:
+            <li>Vencerá o jogo a equipe que tiver menos cartas em mãos no momento do stop (soma de todas as cartas de todos os integrantes da equipe).</li>
+            <li>Em caso de empate, será resolvido a pontuação da equipe na rodada após a finalização de todos os jogos da mesma.
+            </li>
+        </ul> -->
+
+    </details>
+
+    <br />
+
+    <!-- CS Composto -->
+    <details>
+        <summary>CS Composto</summary>
+        <p>Os participantes de cada equipe devem se dispor de forma intercalada na mesa.</p>
+        <ul>
+            O participante da sequência deve falar uma palavra relacionada com a palavra que o participante atual falar.
+            <li>A rotação é no sentido anti-horário.</li>
+            <li>Não pode ser falada nenhuma palavra que comece com a letra “S”, “C” ou que seja uma palavra composta. Nesse caso, a equipe será penalizada com a perda de 45 segundos no seu relógio.</li>
+            <li>Ex: “Chuva”, “Sítio”, “Guarda-roupa”.</li>
+        </ul>
+
+        <p>Após uma penalidade, o participante recomeça o jogo com uma palavra nova.</p>
+        <p>Após responder corretamente, o participante deverá acionar o relógio que irá pausar o tempo da sua equipe e retomar a contagem do tempo da equipe adversária.</p>
+        <p>Cada equipe terá 5 minutos no seu relógio.</p>
+        <a [routerLink]="['/relogio']">Relógio para o jogo.</a>
+        <p class="highlight">VENCEDOR: Vence a equipe que não “estourar” o relógio.</p>
+        
+
+    </details>
+
+    
+</div>
+
+
+
+<!-- Muralha de Jericó (em equipe) -->
+<!-- <details>
+        <summary>Batalha de Jericó</summary>
+        <ul>
+            Cada equipe começa (Israelitas e Cananeus) com 5 fichas de ataque e 5 fichas de defesa.
+            <li>Israelitas serão a equipe cujo líder foi vencedor do par ou ímpar na seleção dos participantes.</li>
+        </ul>
+        <ul>
+            A cada rodada as equipes recebem 2 ficha de ataque e 2 de defesa. A equipe do turno recebe um bônus de +1 ficha de ataque.
+            <li>Os Israelitas começam sendo a equipe do turno e a cada nova rodada o bônus muda para a outra equipe.</li>
+        </ul>
+        
+        <p>
+            Durante a rodada as equipes, em segredo, vão decidir as ações e preencher o plano de guerra. Devem ser utilizadas todas as fichas que a equipe possuir.
+        </p>
+        
+        <br/>
+            
+        <ul>
+            Ações que poderão ser tomadas por cada equipe durante uma rodada:
+            <li>
+                Ataque: Escolhe-se uma ou mais pessoas da equipe inimiga e uma quantidade de fichas de ataque para atingi-las, distribuídas de forma individual;
+            </li>
+            <li>
+                Defesa: Escolhe-se uma ou mais pessoas da sua equipe e uma quantidade de fichas de defesa para protegê-las, distribuídas de forma individual.
+            </li>
+        </ul>
+        
+        <ul>
+            Com as ações decididas por ambas equipe, deverão ser reveladas e calculadas as consequências da rodada de guerra:
+            <li>
+                Se o jogador atacado tiver menos fichas de defesa do que as fichas de ataque utilizadas contra ele, então ele morre;
+            </li>
+            <li>
+                Se um jogador morre, todas as fichas envolvidas no combate que o matou são descartadas;
+            </li>
+            <li>
+                Se o jogador atacado tiver fichas de defesa suficientes para aguentar o ataque adversário, nada acontece e as fichas
+                retornam para suas respectivas equipes.
+            </li>
+        </ul>
+
+        <p>
+            Um participante pode ser ressuscitado pelo valor de 3 fichas de defesa.
+        </p>
+        
+        <p class="highlight">
+            VENCEDOR: A equipe que eliminar todos os participantes inimigos.
+        </p>
+        <ul class="highlight">
+            REGRA DE STOP:
+            <li>Vencerá o jogo a equipe que tiver mais fichas no total (ataque + defesa).</li>
+            <li>Em caso de empate, será resolvido a pontuação da equipe na rodada após a finalização de todos os jogos da mesma.</li>
+        </ul>
+    </details> -->

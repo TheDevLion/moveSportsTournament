@@ -1,0 +1,20 @@
+<table>
+    <tr>
+       <th (click)="sortTable(1)">Class.</th>
+       <th (click)="sortTable(2)">Participante</th>
+       <th (click)="sortTable(3)">Pontos</th>
+       <th (click)="sortTable(4)">Part.</th>
+       <th (click)="sortTable(5)">V</th>
+       <th (click)="sortTable(6)">D</th>
+       <th *ngIf="date">Histórico</th>
+    </tr>
+    <tr *ngFor="let row of classificationTable">
+       <td>{{row.position}} °</td>
+       <td>{{row.participant_name}}</td>
+       <td>{{row.score}}</td>
+       <td>{{row.frequency}}</td>
+       <td>{{row.wins}}</td>
+       <td>{{row.losses}}</td>
+       <td *ngIf="date"><p *ngFor="let game of row.history">{{game}}</p></td>
+    </tr>
+   </table>
