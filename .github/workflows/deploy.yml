@@ -56,7 +56,7 @@ jobs:
 
       # 🏗️ Build da aplicação Angular
       - name: Build Angular
-        run: pnpm ng build --configuration production --base-href=/moveSports/
+        run: pnpm ng build --configuration production --base-href=/moveSportsTournament/
 
       # 🚀 Deploy para GitHub Pages
       - name: Deploy to GitHub Pages
