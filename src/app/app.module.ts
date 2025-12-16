@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from "@angular/router";
 import { FormsModule } from '@angular/forms';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './component/nav-bar/nav-bar.component';
@@ -47,7 +48,9 @@ const routes: Routes = [
     RouterModule.forRoot(routes)
   ],
   exports: [RouterModule],
-  providers: [],
+  providers: [
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppRoutingModule { }
