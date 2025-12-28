@@ -1,0 +1,102 @@
+<details>
+    <summary>Gerenciamento de Etapa</summary>
+
+    <details>
+        <summary>Data da Etapa</summary>
+
+        <div>
+            <input type="date" [(ngModel)]="stageDate" (change)="loadSportsRecords()"/>
+            <button (click)="alert(stageDate)">Show Date</button>
+        </div>
+    </details>
+    
+    <details>
+        <summary>Novo Participante</summary>
+
+        <div id="newParticipant">
+            <div><label>Nome: <input [(ngModel)]="newParticipant.name" /></label></div>
+            <br/>
+            <div><label>Apelido: <input [(ngModel)]="newParticipant.alias"/></label></div>
+
+            <button (click)="addParticipant()">Adicionar</button>
+        </div>
+        
+    </details>
+
+    <details>
+        <summary>Participantes do dia {{getReportParticipants()}}</summary>
+
+        <button (click)="cleanLocalStorageParticipants()">Limpar Cache</button>
+        
+        <div id="dailyParticipants">
+            <div *ngFor="let participant of participants" class="dailyParticipant" (click)="changeParticipantStatus(participant.id)" [ngClass]="isParticipantSelected(participant.id) ? 'present' : 'notPresent'">                
+                {{participant.name}} ( {{participant.alias}} )
+            </div>            
+        </div>
+    </details>
+
+    <details>
+        <summary>Times</summary>
+        
+        <div id="dailyParticipants">
+            <details>                
+                <summary><h2>Titulares #{{getCurrentMatchParticipantsCount()}}</h2></summary>
+
+                <div *ngFor="let participant of getCurrentMatchParticipants()" class="dailyParticipant" [ngClass]="IsOnTeam(participant) === 'A' ? 'teamA' : IsOnTeam(participant) === 'B' ? 'teamB' : ''">
+                    {{participant.name}} ( {{participant.alias}} )                
+                    <div class="teamSelection">
+                        <span (click)="teamManagement(participant, 'A')">A</span>
+                        <span (click)="teamManagement(participant, 'B')">B</span>
+                    </div>
+                    <div class="booleanFieldScore" [ngClass]="WillParticipantScore(participant.id) ? '' : 'noScore'">
+                        <span (click)="changeActiveScore(participant)">pontuação?</span>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <hr/>
+
+        <div id="dailyParticipants">
+            <details>
+                <summary><h2>Reservas #{{getDisabledMatchParticipantsCount()}}</h2></summary>
+
+                <div *ngFor="let participant of getDisabledMatchParticipants()" class="dailyParticipant" [ngClass]="IsOnTeam(participant) === 'A' ? 'teamA' : IsOnTeam(participant) === 'B' ? 'teamB' : ''">
+                    {{participant.name}}
+                    <br/>
+                    ( {{participant.alias}} )
+                    <br/>
+                    <div class="teamSelection">
+                        <span (click)="teamManagement(participant, 'A', false)">A</span>
+                        <span (click)="teamManagement(participant, 'B', false)">B</span>
+                    </div>
+                    <!-- <div class="booleanFieldScore" [ngClass]="WillParticipantScore(participant.id) ? '' : 'noScore'">
+                        <span (click)="changeActiveScore(participant)">pontuação?</span>
+                    </div> -->
+                </div>
+            </details>
+        </div>
+
+        
+        <div id="teamsList">
+            <div class="teamA">
+                <h3 class="teamA">Time A #{{teamCountParticipants('A')}}</h3>
+                <p class="teamA" *ngFor="let participant of teamList('A')" [ngClass]="WillParticipantScore(participant.participant.id) ? '' : 'noScore'">
+                    {{participant.participant.name}}
+                </p>
+                <button (click)="saveWin('A')">Vitória</button>
+            </div>
+
+            <div class="teamB">
+                <h3 class="teamB">Time B #{{teamCountParticipants('B')}}</h3>
+                <p class="teamB" *ngFor="let participant of teamList('B')" [ngClass]="WillParticipantScore(participant.participant.id) ? '' : 'noScore'">
+                    {{participant.participant.name}}
+                </p>
+                <button (click)="saveWin('B')">Vitória</button>
+            </div>
+        </div>
+
+        
+    </details>
+
+</details>

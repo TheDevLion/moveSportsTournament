@@ -1,0 +1,24 @@
+ul {
+    list-style: square;
+    margin-left: 15px;
+    cursor: default;
+}
+
+ul ul {
+    list-style: circle;
+}
+
+ul ul ul {
+    list-style: disc;
+}
+
+ul ul ul ul {
+    list-style: upper-latin;
+}
+
+ul li {
+    margin: 10px;
+    cursor: default;
+}
+
+img {width: 300px;}

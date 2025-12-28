@@ -1,0 +1,69 @@
+name: Deploy Angular App to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 📥 Checkout do código
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # 🔧 Setup PNPM
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 9
+
+      # 🔧 Setup Node.js com cache do PNPM
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'pnpm'
+
+      # 📦 Instalar dependências
+      - name: Install dependencies
+        run: pnpm install
+
+      # 🛠 Criar environments dinamicamente (sem versionar)
+      - name: Inject Angular environment files
+        run: |
+          mkdir -p src/environment
+
+          # environment.ts (desenvolvimento)
+          cat <<EOF > src/environment/environment.ts
+          export const environment = {
+            production: false,
+            graphCmsToken: "",
+            apiUrl: ""
+          };
+          EOF
+
+          # environment.prod.ts (produção)
+          cat <<EOF > src/environment/environment.prod.ts
+          export const environment = {
+            production: true,
+            graphCmsToken: "${{ secrets.GRAPH_CMS_TOKEN }}",
+            apiUrl: "${{ secrets.API_URL }}"
+          };
+          EOF
+
+      # 🏗️ Build da aplicação Angular
+      - name: Build Angular
+        run: pnpm ng build --configuration production --base-href=/moveSportsTournament/
+
+      # 🚀 Deploy para GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: dist/moveSportsTournament
+          clean: true
+          token: ${{ secrets.GH_PAGES_PAT }}
+          force: true

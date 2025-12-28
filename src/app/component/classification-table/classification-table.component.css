@@ -1,0 +1,38 @@
+table {
+    width: 100%;
+    font-size: 0.8em;
+    cursor: default;
+}
+
+
+table tr {
+    border: 1px solid black;
+    text-align: center;
+    padding: 5px;
+}
+
+table td {
+    border-bottom: 1px solid black;
+    background: #ddd;
+    color: #222;
+    border-radius: 2px;
+}
+
+table td p {
+    background: rgba(0,0,0,0);
+}
+
+table th {    
+    padding: 3px;
+    background: #222;
+    color: #ddd;
+    border-radius: 2px;
+    position: relative;
+}
+
+table th span {
+    background: rgba(0,0,0,0);
+    position: absolute;
+    right: 5px;
+    font-family: Arial;
+}

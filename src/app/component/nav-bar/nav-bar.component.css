@@ -1,0 +1,39 @@
+
+:host { 
+    flex-grow: 2 ; 
+    width: 70%;    
+}
+
+
+nav { 
+    display: flex;
+    justify-content: space-around;    
+    padding: 5px;
+    background: #222;
+}
+
+nav ul {
+    color: #222;
+    background: #ddd;
+    padding: 2px 2px;
+    border-radius: 2px;
+    /* border: 1px solid #ddd; */
+    box-shadow: 0px 0px 2px 1px #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 2px;
+}
+
+nav ul:hover {    
+    cursor: pointer;
+    color: #ddd;
+    background: #222;
+}
+
+
+
+@media screen and (max-width: 768px) {
+    ul { font-size: 0.7em;}
+}

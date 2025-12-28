@@ -1,0 +1,139 @@
+details {
+    cursor: pointer;
+    padding-bottom: 10px;
+}
+
+details details {
+    margin-left: 20px;
+}
+
+details div {
+    margin: 0px 5px;    
+}
+
+details button {
+    padding: 0px 10px;
+    cursor: pointer;
+    margin: 10px 10px;
+}
+
+details button:hover {
+    background: #222;
+    color: #ddd;
+}
+
+div#newParticipant, div#newParticipant div, div#newParticipant label, div#newParticipant input {
+    background: #ddd;
+    padding: 3px;
+    width: 90%;
+}
+
+div#newParticipant button {
+    padding: 5px 15px;
+    background: #222;
+    color: #ddd;
+    border: 1px solid #222;
+    cursor: pointer;
+    margin: 10px;
+}
+
+div#newParticipant button:hover {
+    background: #ddd;
+    color: #222;
+}
+
+
+div#dailyParticipants {
+    background: #ddd;
+    padding: 3px;
+    width: 90%;
+    /* display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; */
+}
+
+div.dailyParticipant {    
+    border: 1px solid #222;
+    /* padding: 5px; */
+    border-radius: 2px;    
+    font-size: 0.8em;
+    text-align: center;
+    margin: 3px 3px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* flex-direction: column; */
+}
+
+div.present {
+    background: #90ff90;
+}
+
+div.notPresent {
+    background: #ff9090;
+}
+
+div.dailyParticipant div span {
+    background: rgba(0,0,0,0);
+    margin: 5px 5px;
+    padding: 2px 5px;
+    border: 1px solid #222;
+    cursor: pointer
+}
+
+div.dailyParticipant div span:hover {    
+    color: #222;
+}
+
+div.teamSelection {
+    margin: 10px !important;
+    background: rgba(0,0,0,0);
+}
+
+div#teamsList {
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+}
+
+div#teamsList  div {
+    padding: 10px;
+    width: 40%;
+    text-align: center;
+}
+
+div#teamsList button {
+    background: rgba(0,0,0,0);
+}
+div#teamsList button:hover {
+    color: #222;
+}
+
+.teamA {
+    background: #65fafe !important;    
+}
+
+.teamB {
+    background: #b43721 !important;
+    color: white;    
+}
+
+
+input[type=date] {
+    text-align: center;
+}
+
+
+.booleanFieldScore {
+    background: rgba(0,0,0,0);
+}
+
+.noScore {
+    text-decoration: line-through;
+}
+
+h2 {
+    background: none;
+}

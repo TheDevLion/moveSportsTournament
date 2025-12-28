@@ -1,0 +1,6 @@
+- Lista de pessoas (ids) não pontuáveis
+- Lista de eventos com nomes dos esportes
+- Na tabela deixar pessoas com mesma pontuação e afins na mesma colocação
+- Fazer backup do evento
+
+ng deploy --base-href=https://move-app.github.io/moveSports/ --no-silent

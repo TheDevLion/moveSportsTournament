@@ -1,0 +1,37 @@
+<header>
+    <!-- <h1>{{title}}</h1> -->
+    <img [src]="'assets/logo.png'" [alt]="'logo'" />
+    <app-nav-bar></app-nav-bar>
+    <!-- <hr/> -->
+</header>
+
+<div id="content" >
+    <p [className]="losingTeam === 'A' ? 'lose' : 'normal'"> <span *ngIf="(team === 'B' && !pause) || (team === 'A' && pause)" class="arrow">&rarr;</span>equipe A</p>
+    <span>Punições: {{teamA_penalties}}</span>
+    <button (click)="penaltyTeam('A')" class="penalty" [disabled]="lock ? true : false">Penalidade</button>
+    <p [className]="losingTeam === 'A' ? 'lose' : 'normal'">
+        {{intToTime(teamA_clock)}}
+        <span style="font-size: 0.5em;">0{{team === "B" ? milisec : "0"}}</span>
+    </p>    
+        
+    
+    <button (click)="clockAction()" id="start" [disabled]="lock ? true : false">{{pause ? "Iniciar" : "Próximo Time"}}</button>
+    
+    
+    <p [className]="losingTeam === 'B' ? 'lose' : 'normal'">
+        {{intToTime(teamB_clock)}} 
+        <span style="font-size: 0.5em;">0{{team === "A" ? milisec : "0"}}</span>
+    </p>
+    <button (click)="penaltyTeam('B')" class="penalty" [disabled]="lock ? true : false">Penalidade</button>
+    <span>Punições: {{teamB_penalties}}</span>
+    <p [className]="losingTeam === 'B' ? 'lose' : 'normal'"><span *ngIf="(team === 'A' && !pause) || (team === 'B' && pause)" class="arrow">&rarr;</span>equipe B</p>
+</div>
+
+
+
+<div style="display: flex; justify-content: space-between;">
+<button (click)="pauseAction()" [disabled]="lock ? true : false" class="general_button">{{pause ? "Retomar" : "Pausar"}}</button>
+<button (click)="resetAction()" class="general_button">Resetar</button>
+</div>
+
+
