@@ -1,42 +1,50 @@
-name: Deploy Angular App to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches:
       - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      # 📥 Checkout do código
       - name: Checkout
         uses: actions/checkout@v4
 
-      # 🔧 Setup PNPM
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
       - name: Setup pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v4
         with:
           version: 9
+          run_install: false
 
-      # 🔧 Setup Node.js com cache do PNPM
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
-          cache: 'pnpm'
+          cache: "pnpm"
 
-      # 📦 Instalar dependências
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
-      # 🛠 Criar environments dinamicamente (sem versionar)
       - name: Inject Angular environment files
         run: |
           mkdir -p src/environment
 
-          # environment.ts (desenvolvimento)
+          # environment.ts (development)
           cat <<EOF > src/environment/environment.ts
           export const environment = {
             production: false,
@@ -45,7 +53,7 @@ jobs:
           };
           EOF
 
-          # environment.prod.ts (produção)
+          # environment.prod.ts (production)
           cat <<EOF > src/environment/environment.prod.ts
           export const environment = {
             production: true,
@@ -54,16 +62,21 @@ jobs:
           };
           EOF
 
-      # 🏗️ Build da aplicação Angular
       - name: Build Angular
         run: pnpm ng build --configuration production --base-href=/moveSportsTournament/
 
-      # 🚀 Deploy para GitHub Pages
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          branch: gh-pages
-          folder: dist/moveSportsTournament
-          clean: true
-          token: ${{ secrets.GH_PAGES_PAT }}
-          force: true
+          path: dist/moveSportsTournament
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,16 +1,31 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Move Sports League</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="assets/MSL-Logo-2-64px.ico">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-</head>
-<body>
-  <app-root></app-root>
-</body>
+  <head>
+    <meta charset="utf-8">
+    <title>Move Sports League</title>
+    <script>
+      (function () {
+        var l = window.location;
+        var segment = 1;
+        var newUrl =
+          l.protocol +
+          "//" +
+          l.hostname +
+          (l.port ? ":" + l.port : "") +
+          l.pathname
+            .split("/")
+            .slice(0, segment + 1)
+            .join("/") +
+          "/?/" +
+          l.pathname
+            .split("/")
+            .slice(segment + 1)
+            .join("/") +
+          l.search.replace(/&/g, "~and~") +
+          l.hash;
+        window.location.replace(newUrl);
+      })();
+    </script>
+  </head>
+  <body></body>
 </html>
